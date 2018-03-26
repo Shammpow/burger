@@ -8,9 +8,13 @@ router.get("/", function(req, res) {
     burger.all(function(data) {
         var hbsObject = {
             burgers: data
-        };
-        console.log(hbsObject);
-        res.render("index", hbsObject);
+        };  
+        var string = JSON.stringify(data);
+        var parsed = JSON.parse(string);
+        console.log("shit");
+        if(parsed){
+            res.render("index", hbsObject);
+        }
     });
 });
 
