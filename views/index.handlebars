@@ -1,0 +1,37 @@
+<div class="container">
+    <img src="assets/img/burger-pic.jpg" alt="burger" id="burgerImage">
+    <div class="row">
+        {{!-- Burgers Not Eaten --}}
+        <div class="col-sm-4" id="burgersNotEaten">
+            <ul>
+                {{#each burgers}}
+                <li>
+                    <p>
+                        <span class="label">ID:</span> {{this.id}}</p>
+                    <button data-id="{{this.id}}" class="devourBurger">Devour Burger</button>
+
+                </li>
+                {{/each}}
+            </ul>
+        </div>
+        {{!-- Adding Burgers --}}
+        <div class="form-group col-sm-4">
+            <label for="burgerInputSpot">Input Burger Name</label>
+            <textarea class="form-control" id="burgerInputSpot" rows="3"></textarea>
+            <button id="sendBurger">Submit</button>
+        </div>
+        {{!-- Burgers Eaten --}}
+        <div class="col-sm-4" id="burgersEaten">
+            <ul>
+                {{#each burgers}} {{#unless devoured}}
+                <li>
+                    <p>
+                        <span class="label">ID:</span> {{this.id}}</p>
+                </li>
+                {{/unless}} {{/each}}
+            </ul>
+
+        </div>
+
+    </div>
+</div>
